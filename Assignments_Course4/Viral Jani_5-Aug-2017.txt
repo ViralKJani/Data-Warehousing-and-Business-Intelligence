@@ -1,0 +1,57 @@
+[
+  {
+    "op": "core/column-split",
+    "description": "Split On '-' [Camis - Location ID] (#### Rows)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Camis - Location ID",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "-",
+    "regex": false,
+    "maxColumns": 2,
+    "separatorSolutionInt": 0
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Edit Cell [Country] (#### Rows)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Country",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": true,
+        "fromError": false,
+        "from": [
+          ""
+        ],
+        "to": "United States",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Edit Cell [State] (#### Rows)",
+    "engineConfig": null,
+    "columnName": "State",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "new york",
+          "New York"
+        ],
+        "to": "New York"
+      }
+    ]
+  }
+]
